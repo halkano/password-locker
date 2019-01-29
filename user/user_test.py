@@ -106,3 +106,12 @@ def test_user_exists(self):
         '''
 
         self.assertEqual(User.display_user(), User.user_list)
+def test_copy_email(self):
+        '''
+        Test to confirm that we are copying the email address from a found contact
+        '''
+
+        self.new_user.save_user()
+        User.copy_email("a")
+
+        self.assertEqual(self.new_user.email, pyperclip.paste())
