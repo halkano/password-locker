@@ -5,7 +5,8 @@ class Credential:
         """
 
         credential_list = [] # Empty credential list
-    def __init__(self,first_name,last_name,password,email):
+
+        def __init__(self,first_name,last_name,password,email):
 
           # docstring removed for simplicity
 
@@ -24,13 +25,14 @@ class Credential:
 
             Credential.credential_list.append(self)
 
-            def delete_credential(self):
+        def delete_credential(self):
             '''
             delete_credential method deletes a saved user from the user_list
             '''
 
             Credential.credential_list.remove(self)
-@classmethod
+
+        @classmethod
         def find_by_first_name(cls, name):
             '''
             Method that takes in a name and returns a name that matches that name.
@@ -44,19 +46,20 @@ class Credential:
             for credential in cls.credential_list:
                 if credential.first_name == name:
                     return credential
-                                    return credential
         @classmethod
         def credential_exist(cls,name):
             for credential in cls.credential_list:
                 if credential.password == name:
                     return credential
-                    @classmethod
+
+        @classmethod
         def display_credential(cls):
             '''
             method that returns the user list
             '''
             return cls.credential_list
-@classmethod
+
+        @classmethod
         def copy_email(cls, first_name):
             credential_found = Credential.find_by_first_name(first_name)
             pyperclip.copy(credential_found.email)
