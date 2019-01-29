@@ -50,3 +50,9 @@ class Credential:
             for credential in cls.credential_list:
                 if credential.password == name:
                     return credential
+                    @classmethod
+        def display_credential(cls):
+            '''
+            method that returns the user list
+            '''
+            return cls.credential_list
