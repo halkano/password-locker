@@ -24,13 +24,13 @@ class User:
          '''
 
         User.user_list.append(self)
+
     def delete_user(self):
         '''
         delete_user method deletes a saved user from the user_list
         '''
         User.user_list.remove(self)
-
-        @classmethod
+    @classmethod
     def find_by_first_name(cls, name):
          '''
          Method that takes in a name and returns a name that matches that name.
@@ -44,19 +44,19 @@ class User:
          for user in cls.user_list:
              if user.first_name == name:
                  return user
-        @classmethod
+    @classmethod
     def user_exist(cls,name):
        for user in cls.user_list:
            if user.password == name:
                return user
-               @classmethod
+    @classmethod
     def display_user(cls):
         '''
         method that returns the user list
         '''
         return cls.user_list
 
-        @classmethod
+    @classmethod
     def copy_email(cls, first_name):
            user_found = User.find_by_first_name(first_name)
            pyperclip.copy(user_found.email)
