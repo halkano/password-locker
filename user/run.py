@@ -64,3 +64,47 @@ def main():
 
             print("Email address ...")
             e_address = input()
+
+            save_credential(create_credential(f_name, l_name, p_word, e_address))  # create and save new credential
+            print ('\n')
+            print(f"New User {f_name} {l_name} created")
+            print ('\n')
+
+        elif short_code == 'dc':
+
+            if display_credential():
+                    print("Here is a list of all your users")
+                    print('\n')
+
+                    for credential in display_credential():
+                            print(f"{credential.first_name} {credential.last_name} .....")
+
+                    print('\n')
+            else:
+                    print('\n')
+                    print("You dont seem to have any user saved yet")
+                    print('\n')
+
+        elif short_code == 'fc':
+
+            print("Enter the name you want to search for")
+
+            search_first_name = input()
+            if check_existing_credentials(search_first_name):
+                    search_credential = find_credential(search_first_name)
+                    print(f"{search_credential.first_name} {search_credential.last_name}")
+                    print('-' * 20)
+
+
+                    print(f"Email address.......{search_credential.email}")
+            else:
+                    print("That user does not exist")
+
+        elif short_code == "ex":
+            print("Bye .......")
+            break
+        else:
+            print("I really didn't get that. Please use the short codes")
+
+if __name__ == '__main__':
+     main()
