@@ -17,3 +17,8 @@ def create_credential(fname,lname,password,email):
     Function to delete a user
     '''
     credential.delete_credential()
+    def find_credential(first_name):
+    '''
+    Function that finds a user by name and returns the user
+    '''
+    return Credential.find_by_first_name(first_name)
