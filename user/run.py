@@ -27,3 +27,10 @@ def create_credential(fname,lname,password,email):
     Function that check if a credential exists with that name and return a Boolean
     '''
     return Credential.credential_exist(first_name)
+
+
+def display_credential():
+    '''
+    Function that returns all the saved user
+    '''
+    return Credential.display_credential()
