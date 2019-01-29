@@ -56,3 +56,7 @@ class Credential:
             method that returns the user list
             '''
             return cls.credential_list
+@classmethod
+        def copy_email(cls, first_name):
+            credential_found = Credential.find_by_first_name(first_name)
+            pyperclip.copy(credential_found.email)
