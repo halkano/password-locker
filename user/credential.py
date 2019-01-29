@@ -30,3 +30,23 @@ class Credential:
             '''
 
             Credential.credential_list.remove(self)
+@classmethod
+        def find_by_first_name(cls, name):
+            '''
+            Method that takes in a name and returns a name that matches that name.
+
+            Args:
+                number: name to search for
+            Returns :
+                user of person that matches the name.
+            '''
+
+            for credential in cls.credential_list:
+                if credential.first_name == name:
+                    return credential
+                                    return credential
+        @classmethod
+        def credential_exist(cls,name):
+            for credential in cls.credential_list:
+                if credential.password == name:
+                    return credential
