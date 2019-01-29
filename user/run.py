@@ -7,22 +7,23 @@ def create_credential(fname,lname,password,email):
     '''
     new_credential = Credential(fname,lname,password,email)
     return new_credential
-    def save_credential(credential):
+def save_credential(credential):
     '''
     Function to save credential
     '''
-    Credential.save_credentials(credential
-    def del_credential(credential):
+    Credential.save_credentials(credential)
+def del_credential(credential):
     '''
     Function to delete a user
     '''
     credential.delete_credential()
-    def find_credential(first_name):
+def find_credential(first_name):
     '''
     Function that finds a user by name and returns the user
     '''
     return Credential.find_by_first_name(first_name)
-    ef check_existing_credentials(first_name):
+
+def check_existing_credentials(first_name):
     '''
     Function that check if a credential exists with that name and return a Boolean
     '''
@@ -34,6 +35,7 @@ def display_credential():
     Function that returns all the saved user
     '''
     return Credential.display_credential()
+
 
 def main():
     print("Hello Welcome to your User list. What is your name?")
