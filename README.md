@@ -1,6 +1,8 @@
+
 # Title
 
 - Password-Locker
+
 #### henry halkano
 
 ## Description
@@ -21,3 +23,19 @@
 - Type `git clone`, and then paste the URL you copied in Step 2.
 - `git clone https://github.com/halkano/Password-Locker.git`
 - Press Enter.
+
+
+
+## technologies used
+- Python
+
+
+
+#### Link to the live site of the repository can be found at:
+ - https://github.com/halkano/Password-Locker
+
+
+- This project is under an MIT [license](LICENSE)
+
+
+-
