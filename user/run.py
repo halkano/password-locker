@@ -12,3 +12,8 @@ def create_credential(fname,lname,password,email):
     Function to save credential
     '''
     Credential.save_credentials(credential
+    def del_credential(credential):
+    '''
+    Function to delete a user
+    '''
+    credential.delete_credential()
