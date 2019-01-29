@@ -12,4 +12,10 @@ class TestUser(unittest.TestCase):
         unittest.TestCase: TestCase class that helps in creating test cases
     '''
 
-    # Items up here ......
+    # Items up here .......
+
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_user = User("a", "b", "c", "d")  # create user object
