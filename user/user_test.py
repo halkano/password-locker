@@ -19,7 +19,8 @@ class TestUser(unittest.TestCase):
         Set up method to run before each test cases.
         '''
         self.new_user = User("a", "b", "c", "d")  # create user object
-def test_init(self):
+
+    def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
@@ -28,7 +29,8 @@ def test_init(self):
         self.assertEqual(self.new_user.last_name, "b")
         self.assertEqual(self.new_user.password, "c")
         self.assertEqual(self.new_user.email, "d")
-def test_save_user(self):
+
+    def test_save_user(self):
         '''
         test_save_user test case to test if the user object is saved into
          the user list
@@ -36,7 +38,7 @@ def test_save_user(self):
         self.new_user.save_user()  # saving the new user
         self.assertEqual(len(User.user_list), 1)
 
-def test_save_multiple_user(self):
+    def test_save_multiple_user(self):
         '''
         test_save_multiple_user to check if we can save multiple user
         objects to our user_list
@@ -46,14 +48,14 @@ def test_save_multiple_user(self):
         test_user.save_user()
         self.assertEqual(len(User.user_list), 2)
         # setup and class creation up here
-def tearDown(self):
+    def tearDown(self):
             '''
             tearDown method that does clean up after each test case has run.
             '''
             User.user_list = []
 
         # other test cases here
-        def test_save_multiple_user(self):
+    def test_save_multiple_user(self):
             '''
             test_save_multiple_user to check if we can save multiple user
             objects to our user_list
@@ -64,7 +66,8 @@ def tearDown(self):
             self.assertEqual(len(User.user_list), 2)
             # More tests above
 
-            def test_delete_user(self):
+
+    def test_delete_user(self):
         '''
         test_delete_user to test if we can remove a user from our user list
         '''
@@ -75,7 +78,7 @@ def tearDown(self):
         self.new_user.delete_user()  # Deleting a user object
         self.assertEqual(len(User.user_list), 1)
 
-        def test_find_user_by_first_name(self):
+    def test_find_user_by_first_name(self):
         '''
         test to check if we can find a user by first_name and display information
         '''
@@ -88,7 +91,7 @@ def tearDown(self):
 
         self.assertEqual(found_user.email, test_user.email)
 
-def test_user_exists(self):
+    def test_user_exists(self):
         '''
         test to check if we can return a Boolean  if we cannot find the user.
         '''
@@ -100,13 +103,15 @@ def test_user_exists(self):
         user_exists = User.user_exist("c")
 
         self.assertTrue(user_exists)
-        def test_display_all_users(self):
+
+    def test_display_all_users(self):
         '''
         method that returns a list of all user saved
         '''
 
         self.assertEqual(User.display_user(), User.user_list)
-def test_copy_email(self):
+
+    def test_copy_email(self):
         '''
         Test to confirm that we are copying the email address from a found contact
         '''
@@ -115,3 +120,9 @@ def test_copy_email(self):
         User.copy_email("a")
 
         self.assertEqual(self.new_user.email, pyperclip.paste())
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
