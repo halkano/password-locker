@@ -22,3 +22,8 @@ def create_credential(fname,lname,password,email):
     Function that finds a user by name and returns the user
     '''
     return Credential.find_by_first_name(first_name)
+    ef check_existing_credentials(first_name):
+    '''
+    Function that check if a credential exists with that name and return a Boolean
+    '''
+    return Credential.credential_exist(first_name)
