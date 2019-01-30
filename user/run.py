@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 
 from credential import Credential
+from user import User
 def create_credential(fname,lname,password,email):
     '''
     Function to create a new credential
@@ -47,11 +48,11 @@ def main():
     while True:
 
 
-        print("Use these short codes : cc - create a new Account, dc - display credential, fc -find a credential, ex -exit the credential list ")
+        print("Use these short codes : ca - create a new Account, dc - display credential, fc -find a credential, ex -exit the credential list ")
 
         short_code = input().lower()
 
-        if short_code == 'cc':
+        if short_code == 'ca':
             print("New Account")
             print("-"*10)
 

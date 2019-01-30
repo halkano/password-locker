@@ -55,16 +55,7 @@ class TestUser(unittest.TestCase):
             User.user_list = []
 
         # other test cases here
-    def test_save_multiple_user(self):
-            '''
-            test_save_multiple_user to check if we can save multiple user
-            objects to our user_list
-            '''
-            self.new_user.save_user()
-            test_user = User("Test", "user", "c", "d")  # new user
-            test_user.save_user()
-            self.assertEqual(len(User.user_list), 2)
-            # More tests above
+    
 
 
     def test_delete_user(self):

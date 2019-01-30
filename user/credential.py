@@ -45,12 +45,12 @@ class Credential:
 
             for credential in cls.credential_list:
                 if credential.first_name == name:
-                    return credential
+                    return True
         @classmethod
         def credential_exist(cls,name):
             for credential in cls.credential_list:
                 if credential.password == name:
-                    return credential
+                    return True
 
         @classmethod
         def display_credential(cls):
