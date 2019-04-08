@@ -70,6 +70,3 @@ To fix a bug or enhance an existing module, follow these steps:
 
 
 - This project is under an MIT [license](LICENSE)
-
-
--
