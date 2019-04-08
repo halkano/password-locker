@@ -1,117 +1,111 @@
-import unittest # Importing the unittest module
-import pyperclip, sys
-from user import User # Importing the user class
+import unittest
+from user import User, Credential
 
 class TestUser(unittest.TestCase):
-
-
     '''
-    Test class that defines test cases for the contact class behaviours.
-
+    Test class that defines test cases for the user class and credential class
     Args:
-        unittest.TestCase: TestCase class that helps in creating test cases
+        unittest.TestCase: Class that helps in creating test cases
     '''
-
-    # Items up here .......
-
     def setUp(self):
         '''
-        Set up method to run before each test cases.
+        Method to run before each test case
         '''
-        self.new_user = User("a", "b", "c", "d")  # create user object
+        self.new_user = User("henry","henry10")
+        self.new_credential = Credential("henry","Google","halkano","henry10")
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        User.user_list = []
+        Credential.credential_list = []
 
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
-
-        self.assertEqual(self.new_user.first_name, "a")
-        self.assertEqual(self.new_user.last_name, "b")
-        self.assertEqual(self.new_user.password, "c")
-        self.assertEqual(self.new_user.email, "d")
+        self.assertEqual(self.new_user.username,"henry")
+        self.assertEqual(self.new_user.password,"henry10")
+        self.assertEqual(self.new_credential.user_name,"henry")
+        self.assertEqual(self.new_credential.site_name,"Google")
+        self.assertEqual(self.new_credential.account_name,"halkano")
+        self.assertEqual(self.new_credential.account_password,"henry10")
 
     def test_save_user(self):
         '''
-        test_save_user test case to test if the user object is saved into
-         the user list
-        '''
-        self.new_user.save_user()  # saving the new user
-        self.assertEqual(len(User.user_list), 1)
-
-    def test_save_multiple_user(self):
-        '''
-        test_save_multiple_user to check if we can save multiple user
-        objects to our user_list
+        test case to test if the user object is saved to the user list
         '''
         self.new_user.save_user()
-        test_user = User("Test", "user", "d", "test@user.com")  # new user
+        self.assertEqual(len(User.user_list),1)
+
+    def test_save_credential(self):
+        '''
+        test case to test if the credential object is saved in the credential list
+        '''
+        self.new_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list),1)
+
+    def test_save_multiple_credential(self):
+        '''
+        test case to check if we can save multiple credential objects to the credential list
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credential("henry","facebook","halkano","fdsf134csd")
+        test_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list),2)
+
+    def test_check_user(self):
+        '''
+        test case to check if the user exists
+        '''
+        self.new_user.save_user()
+        test_user= User("hulk","hulk10")
         test_user.save_user()
-        self.assertEqual(len(User.user_list), 2)
-        # setup and class creation up here
-    def tearDown(self):
-            '''
-            tearDown method that does clean up after each test case has run.
-            '''
-            User.user_list = []
+        self.assertEqual(test_user.username,"hulk")
 
-        # other test cases here
-    
-
-
-    def test_delete_user(self):
+    def test_delete_credential(self):
         '''
-        test_delete_user to test if we can remove a user from our user list
+        test case to check if an unwanted credential is deleted
         '''
-        self.new_user.save_user()
-        test_contact = User("Test", "user", "c", "d")  # new contact
-        test_contact.save_user()
+        self.new_credential.save_credential()
+        test_credential = Credential("henry","facebook","halkano","fdsf134csd")
+        test_credential.save_credential()
+        test_credential.delete_credential()
+        self.assertEqual(len(Credential.credential_list),1)
 
-        self.new_user.delete_user()  # Deleting a user object
-        self.assertEqual(len(User.user_list), 1)
-
-    def test_find_user_by_first_name(self):
+    def test_generate_password(self):
         '''
-        test to check if we can find a user by first_name and display information
+        test case to check if the password is generated
         '''
+        self.assertTrue(Credential.generate_password())
 
-        self.new_user.save_user()
-        test_user = User("Test", "user", "c", "d")  # new user
-        test_user.save_user()
-
-        found_user = User.find_by_first_name("Test")
-
-        self.assertEqual(found_user.email, test_user.email)
-
-    def test_user_exists(self):
+    def test_find_credential(self):
         '''
-        test to check if we can return a Boolean  if we cannot find the user.
+        test case to find credential of a particular site
         '''
+        self.new_credential.save_credential()
+        test_credential = Credential("henry","facebook","halkano","fdsf134csd")
+        test_credential.save_credential()
+        self.assertEqual(Credential.find_credential("facebook"),test_credential)
 
-        self.new_user.save_user()
-        test_user = User("Test", "user", "c", "d")  # new user
-        test_user.save_user()
-
-        user_exists = User.user_exist("c")
-
-        self.assertTrue(user_exists)
-
-    def test_display_all_users(self):
+    def test_credential_exist(self):
         '''
-        method that returns a list of all user saved
+        test case to check if the credential exists
         '''
+        self.new_credential.save_credential()
+        test_credential = Credential("henry","facebook","halkano","fdsf134csd")
+        test_credential.save_credential()
+        self.assertTrue(Credential.credential_exist("facebook"))
 
-        self.assertEqual(User.display_user(), User.user_list)
-
-    def test_copy_email(self):
+    def test_display_credentials(self):
         '''
-        Test to confirm that we are copying the email address from a found contact
+        test case to check if the function return the credential list of user
         '''
-
-        self.new_user.save_user()
-        User.copy_email("a")
-
-        self.assertEqual(self.new_user.email, pyperclip.paste())
-
+        self.new_credential.save_credential()
+        test_credential = Credential("henry","facebook","halkano","fdsf134csd")
+        test_credential.save_credential()
+        self.assertEqual(len(Credential.display_credentials("henry")),2)
 
 
 
