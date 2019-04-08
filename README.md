@@ -6,32 +6,26 @@
 #### henry halkano
 
 ## Description
-- This is a website where users enter a Github Username into a form, submit it and see names and descriptions of that person's public repositories.A person can also look for repositories.I have used a Github Api to retrieve this information.
+- This is a website where users can save credentials for various accounts.you can add, delete, display or search for a credentials.When creating a new account you can either create a new password by inputing or autogenerate the password.
 
-# Specifications
-## Application:
-1. display an option to create an account
-   - INPUT:"ca"
-   - OUTPUT:An account created with inputted username and password
-2. - find a credential that has been saved
-   - input"fc"
-   - output user credential has been found and displayed.
-3. add a credential with user name, email and password
-   - INPUT:"cc"
-   - OUTPUT:"User credential is created with the inputted required values"
-4. delete a credential of a user for a particular site
-   - INPUT:"dl"
-   - OUTPUT:"User credential of the site name entered is deleted"
-5. displays a goodbye message and exit
-   - INPUT:"ex
-   - OUTPUT:"Don't forget to add a credential for a new site"
+
+## BDD:
+##  This app is therefore expected to work as following:
+| Behavior | Expectation|
+|----------|:-------------:|
+|INPUT:"ca"|OUTPUT:An account created with inputted username and password |
+|INPUT:"li"| OUTPUT:"logins to the user|
+input"fc"|output user credential has been found and displayed.|
+|INPUT:"cc" |OUTPUT:"User credential is created with the inputted required values" |
+| INPUT:"dl" |OUTPUT:"User credential of the site name entered is deleted" |
+| INPUT:"ex| OUTPUT:"Don't forget to add a credential for a new site" |
 
 ## Running the Application
    * To run the application, in your terminal:
 
-    $ chmod +x Password-Locker.py
-    $ ./password-locker.py
-    
+    $ chmod +x
+    $ ./run.py
+
 ## Testing the Application
    * To run the tests for the class file:
 
