@@ -13,12 +13,12 @@
 ##  This app is therefore expected to work as following:
 | Behavior | Expectation|
 |----------|:-------------:|
-|INPUT:"ca"|OUTPUT:An account created with inputted username and password |
-|INPUT:"li"| OUTPUT:"logins to the user|
-input"fc"|output user credential has been found and displayed.|
-|INPUT:"cc" |OUTPUT:"User credential is created with the inputted required values" |
-| INPUT:"dl" |OUTPUT:"User credential of the site name entered is deleted" |
-| INPUT:"ex| OUTPUT:"Don't forget to add a credential for a new site" |
+|INPUT: "ca"|An account created with inputted username and password |
+|INPUT: "li"|Logins to the user|
+|INPUT: "fc"|User credential has been found and displayed.|
+|INPUT: "cc" |User credential is created with the inputted required values|
+|INPUT: "dl" |User credential of the site name entered is deleted |
+|INPUT: "ex|Don't forget to add a credential for a new site |
 
 ## Running the Application
    * To run the application, in your terminal:
@@ -29,7 +29,7 @@ input"fc"|output user credential has been found and displayed.|
 ## Testing the Application
    * To run the tests for the class file:
 
-    $ python3.6 test_passwordlocker.py
+    $ python3.6 user_test.py
 
 ### Development
 Want to contribute? Great!
